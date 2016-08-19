@@ -15,8 +15,7 @@
 		E43970C91D66BDFA00562C74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43970C71D66BDFA00562C74 /* LaunchScreen.storyboard */; };
 		E43970E21D66E78F00562C74 /* Marquee.m in Sources */ = {isa = PBXBuildFile; fileRef = E43970E11D66E78F00562C74 /* Marquee.m */; };
 		E43970E51D66E80100562C74 /* MarqueeWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E43970E41D66E80100562C74 /* MarqueeWaterFlowLayout.m */; };
-		E43970EC1D66FF5700562C74 /* MarqueeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E43970EA1D66FF5700562C74 /* MarqueeCollectionViewCell.m */; };
-		E43970ED1D66FF5700562C74 /* MarqueeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E43970EB1D66FF5700562C74 /* MarqueeCollectionViewCell.xib */; };
+		E47A75331D67033A00F5E3C5 /* MarqueeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E47A75321D67033A00F5E3C5 /* MarqueeCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +33,8 @@
 		E43970E11D66E78F00562C74 /* Marquee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marquee.m; sourceTree = "<group>"; };
 		E43970E31D66E80100562C74 /* MarqueeWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeWaterFlowLayout.h; sourceTree = "<group>"; };
 		E43970E41D66E80100562C74 /* MarqueeWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeWaterFlowLayout.m; sourceTree = "<group>"; };
-		E43970E91D66FF5700562C74 /* MarqueeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeCollectionViewCell.h; sourceTree = "<group>"; };
-		E43970EA1D66FF5700562C74 /* MarqueeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeCollectionViewCell.m; sourceTree = "<group>"; };
-		E43970EB1D66FF5700562C74 /* MarqueeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarqueeCollectionViewCell.xib; sourceTree = "<group>"; };
+		E47A75311D67033A00F5E3C5 /* MarqueeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeCollectionViewCell.h; sourceTree = "<group>"; };
+		E47A75321D67033A00F5E3C5 /* MarqueeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +96,8 @@
 				E43970E11D66E78F00562C74 /* Marquee.m */,
 				E43970E31D66E80100562C74 /* MarqueeWaterFlowLayout.h */,
 				E43970E41D66E80100562C74 /* MarqueeWaterFlowLayout.m */,
-				E43970E91D66FF5700562C74 /* MarqueeCollectionViewCell.h */,
-				E43970EA1D66FF5700562C74 /* MarqueeCollectionViewCell.m */,
-				E43970EB1D66FF5700562C74 /* MarqueeCollectionViewCell.xib */,
+				E47A75311D67033A00F5E3C5 /* MarqueeCollectionViewCell.h */,
+				E47A75321D67033A00F5E3C5 /* MarqueeCollectionViewCell.m */,
 			);
 			path = Marquee;
 			sourceTree = "<group>";
@@ -164,7 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E43970C91D66BDFA00562C74 /* LaunchScreen.storyboard in Resources */,
-				E43970ED1D66FF5700562C74 /* MarqueeCollectionViewCell.xib in Resources */,
 				E43970C61D66BDFA00562C74 /* Assets.xcassets in Resources */,
 				E43970C41D66BDFA00562C74 /* Main.storyboard in Resources */,
 			);
@@ -180,7 +176,7 @@
 				E43970E51D66E80100562C74 /* MarqueeWaterFlowLayout.m in Sources */,
 				E43970C11D66BDFA00562C74 /* ViewController.m in Sources */,
 				E43970BE1D66BDFA00562C74 /* AppDelegate.m in Sources */,
-				E43970EC1D66FF5700562C74 /* MarqueeCollectionViewCell.m in Sources */,
+				E47A75331D67033A00F5E3C5 /* MarqueeCollectionViewCell.m in Sources */,
 				E43970BB1D66BDFA00562C74 /* main.m in Sources */,
 				E43970E21D66E78F00562C74 /* Marquee.m in Sources */,
 			);
@@ -333,6 +329,7 @@
 				E43970CF1D66BDFA00562C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

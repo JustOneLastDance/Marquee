@@ -10,8 +10,8 @@
 
 @interface MarqueeCollectionViewCell : UICollectionViewCell
 /**
- *  显示文字
+ *  显示的文本内容
  */
-@property (nonatomic, copy) NSString *textStr;
+@property (nonatomic, copy) NSString *textLabelStr;
 
 @end

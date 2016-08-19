@@ -14,10 +14,12 @@
     
     [super prepareLayout];
     
-    self.minimumLineSpacing = 0;
+    self.minimumLineSpacing = 10;
     self.minimumInteritemSpacing = 10;
-//    self.estimatedItemSize = CGSizeMake(100, 20);
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    self.collectionView.showsHorizontalScrollIndicator = false;
+    
 }
 
 @end

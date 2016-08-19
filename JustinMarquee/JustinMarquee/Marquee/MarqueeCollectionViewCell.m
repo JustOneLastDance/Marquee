@@ -10,22 +10,29 @@
 
 @interface MarqueeCollectionViewCell ()
 
-
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (nonatomic, strong) UILabel *textLabel;
 
 @end
 
 @implementation MarqueeCollectionViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.textLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        [self.contentView addSubview:self.textLabel];
+    }
+    return self;
 }
 
-- (void)setTextStr:(NSString *)textStr {
-    _textStr = textStr;
-    [self.textLabel setText:textStr];
-    [self.textLabel sizeToFit];
-    [self.contentView addSubview:self.textLabel];
+- (void)setTextLabelStr:(NSString *)textLabelStr {
+    _textLabelStr = textLabelStr;
+    [self.textLabel setText:textLabelStr];
+    if (textLabelStr == nil) {
+        [self.textLabel setText:@"text"];
+    }
 }
+
+
 
 @end
