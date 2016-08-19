@@ -20,9 +20,21 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        self.textLabel.userInteractionEnabled = true;
         [self.contentView addSubview:self.textLabel];
     }
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture)];
+    [self.textLabel addGestureRecognizer:tapGesture];
+    
     return self;
+}
+
+- (void)tapGesture {
+    NSLog(@"点击了label ");
+    if ([_delegate respondsToSelector:@selector(didClickTextLabelWithString:)]) {
+        [_delegate didClickTextLabelWithString:self.textLabelStr];
+    }
 }
 
 - (void)setTextLabelStr:(NSString *)textLabelStr {

@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MarqueeCollectionViewCellDelegate <NSObject>
+
+- (void)didClickTextLabelWithString:(NSString *)str;
+
+@end
+
 @interface MarqueeCollectionViewCell : UICollectionViewCell
 /**
  *  显示的文本内容
  */
 @property (nonatomic, copy) NSString *textLabelStr;
+
+@property (nonatomic, weak) id<MarqueeCollectionViewCellDelegate> delegate;
 
 @end

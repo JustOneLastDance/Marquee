@@ -92,6 +92,7 @@
     MarqueeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMarqueeCollectionViewCell forIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1.0];
     cell.textLabelStr = self.resourceArray[indexPath.item % self.resourceArray.count];
+    cell.delegate = self.delegate;
     
     return cell;
 }
@@ -106,6 +107,7 @@
 - (void)pxy_autoScrollCollectionView {
     self.collectionView.contentOffset = CGPointMake(self.currentX, 0);
     self.currentX = self.currentX + 0.0025;
+    
 }
 
 @end

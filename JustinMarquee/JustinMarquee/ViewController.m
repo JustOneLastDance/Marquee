@@ -8,12 +8,17 @@
 
 #import "ViewController.h"
 #import "Marquee/Marquee.h"
+#import "Marquee/MarqueeCollectionViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () <MarqueeCollectionViewCellDelegate>
 
 @end
 
 @implementation ViewController
+
+- (void)didClickTextLabelWithString:(NSString *)str {
+    NSLog(@"走马灯的内容是：%@", str);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +31,7 @@
     
     NSArray *arr = @[@"锄禾日当午！！！！！", @"asd g sadf d ass adsf", @"asd你是来发神经地方", @"adfadf"];
     marquee.resourceArray = arr;
+    marquee.delegate = self;
     
 }
 

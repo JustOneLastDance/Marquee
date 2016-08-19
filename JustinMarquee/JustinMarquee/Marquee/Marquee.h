@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface Marquee : UIView
 /**
  *  需要显示的内容数组
  */
 @property (nonatomic, strong) NSArray *resourceArray;
+/**
+ *  cell的代理传递
+ */
+@property (nonatomic, weak) id delegate;
 
 @end
