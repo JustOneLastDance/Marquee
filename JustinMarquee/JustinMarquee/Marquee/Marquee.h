@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MarqueeCollectionViewCell.h"
 
 @interface Marquee : UIView
 /**

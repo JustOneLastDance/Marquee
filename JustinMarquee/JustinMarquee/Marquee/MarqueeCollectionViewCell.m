@@ -31,7 +31,6 @@
 }
 
 - (void)tapGesture {
-    NSLog(@"点击了label ");
     if ([_delegate respondsToSelector:@selector(didClickTextLabelWithString:)]) {
         [_delegate didClickTextLabelWithString:self.textLabelStr];
     }
