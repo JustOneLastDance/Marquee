@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Marquee/Marquee.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    CGFloat x =[UIScreen mainScreen].bounds.size.width * 0.25;
+    
+    Marquee *marquee = [[Marquee alloc] initWithFrame:CGRectMake(x, 100, [UIScreen mainScreen].bounds.size.width * 0.5, 20)];
+    marquee.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:marquee];
+    
+    NSArray *arr = @[@"锄禾日当午！！！！！", @"asd g sadf d ass adsf", @"asd你是来发神经地方", @"adfadf"];
+    marquee.resourceArray = arr;
+    
 }
 
 - (void)didReceiveMemoryWarning {
