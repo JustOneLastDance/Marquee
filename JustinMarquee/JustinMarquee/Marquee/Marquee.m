@@ -18,6 +18,7 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
 @property (nonatomic, strong) NSMutableArray *itemWidthArray;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) CGFloat currentX;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -36,7 +37,7 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
         self.currentX = 0.0f;
         
         MarqueeWaterFlowLayout *layout = [[MarqueeWaterFlowLayout alloc] init];
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) collectionViewLayout:layout];
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(5, 0, frame.size.width - 10, frame.size.height) collectionViewLayout:layout];
         self.collectionView = collectionView;
         collectionView.backgroundColor = [UIColor clearColor];
         
@@ -70,7 +71,7 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
         [self.itemWidthArray addObject:@(label.frame.size.width)];
     }
     
-    [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil  repeats:true];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil repeats:true];
     
 }
 
@@ -85,6 +86,7 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     MarqueeCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMarqueeCollectionViewCell forIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1.0];
     cell.textLabelStr = self.resourceArray[indexPath.item % self.resourceArray.count];
