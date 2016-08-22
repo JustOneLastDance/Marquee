@@ -10,7 +10,7 @@
 
 @interface MarqueeCollectionViewCell ()
 
-@property (nonatomic, strong) UILabel *textLabel;
+
 
 @end
 
@@ -41,7 +41,6 @@
     [self.textLabel setText:textLabelStr];
     if (textLabelStr == nil) {
         [self.textLabel setText:@"text"];
-        [self.textLabel sizeToFit];
     }
 }
 

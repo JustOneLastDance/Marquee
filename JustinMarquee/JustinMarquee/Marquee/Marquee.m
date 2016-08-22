@@ -11,13 +11,13 @@
 
 
 #define kMarqueeCollectionViewCell @"kMarqueeCollectionViewCell"
+#define kMarqueeSpeedUnit 0.0005
 
 @interface Marquee ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray *itemWidthArray;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) CGFloat currentX;
-@property (nonatomic, strong) NSTimer *collectionViewTimer;
 
 @end
 
@@ -45,14 +45,20 @@
         collectionView.delegate = self;
         collectionView.dataSource = self;
         [self addSubview:collectionView];
-        
-        [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil  repeats:true];
+        //默认速度
+        self.scrollSpeed = 5 * kMarqueeSpeedUnit;
         
     }
     return self;
 }
 
 #pragma mark - getter & setter
+
+- (void)setScrollSpeed:(CGFloat)scrollSpeed {
+    _scrollSpeed = scrollSpeed;
+    _scrollSpeed = _scrollSpeed * kMarqueeSpeedUnit;
+}
+
 - (void)setResourceArray:(NSArray *)resourceArray {
     _resourceArray = resourceArray;
     
@@ -61,9 +67,10 @@
         UILabel *label = [[UILabel alloc] init];
         [label setText:str];
         [label sizeToFit];
-        
         [self.itemWidthArray addObject:@(label.frame.size.width)];
     }
+    
+    [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil  repeats:true];
     
 }
 
@@ -74,7 +81,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     // 假象无限轮播 利用 cell 的重用
-    return self.resourceArray.count * (self.resourceArray.count == 2 ? 2 : 1000);
+    return self.resourceArray.count * (self.resourceArray.count <= 2 ? 2 : 1000);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,6 +89,8 @@
     cell.contentView.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1.0];
     cell.textLabelStr = self.resourceArray[indexPath.item % self.resourceArray.count];
     cell.delegate = self.delegate;
+    
+    [cell.textLabel sizeToFit];
     
     return cell;
 }
@@ -94,13 +103,18 @@
 #pragma mark - other function
 - (void)pxy_autoScrollCollectionView {
     
-    if ((self.currentX + self.collectionView.frame.size.width) >= self.collectionView.contentSize.width) {
+    CGFloat totalcontentWidth = 0.0f;
+    for (NSNumber *numWidth in _itemWidthArray) {
+        totalcontentWidth = [numWidth floatValue] + 10 + totalcontentWidth;
+    }
+    totalcontentWidth = totalcontentWidth - 10;
+    
+    if (self.currentX >= totalcontentWidth) {
         self.currentX = 0;
     }
     
     self.collectionView.contentOffset = CGPointMake(self.currentX, 0);
-    self.currentX = self.currentX + 0.0025;
-    
+    self.currentX = self.currentX + self.scrollSpeed;
 }
 
 @end
