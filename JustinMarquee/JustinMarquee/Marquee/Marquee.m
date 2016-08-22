@@ -74,7 +74,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     // 假象无限轮播 利用 cell 的重用
-    return self.resourceArray.count * (self.resourceArray.count == 2 ? 2 : 20);
+    return self.resourceArray.count * (self.resourceArray.count == 2 ? 2 : 1000);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
