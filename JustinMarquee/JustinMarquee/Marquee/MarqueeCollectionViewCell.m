@@ -10,8 +10,6 @@
 
 @interface MarqueeCollectionViewCell ()
 
-
-
 @end
 
 @implementation MarqueeCollectionViewCell
@@ -43,7 +41,5 @@
         [self.textLabel setText:@"text"];
     }
 }
-
-
 
 @end

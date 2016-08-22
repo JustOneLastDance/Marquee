@@ -12,13 +12,14 @@
 
 - (void)prepareLayout {
     
-    [super prepareLayout];
     
     self.minimumLineSpacing = 10;
     self.minimumInteritemSpacing = 10;
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     self.collectionView.showsHorizontalScrollIndicator = false;
+    
+    [super prepareLayout];
     
 }
 

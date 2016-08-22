@@ -11,7 +11,7 @@
 
 
 #define kMarqueeCollectionViewCell @"kMarqueeCollectionViewCell"
-#define kMarqueeSpeedUnit 0.0005
+static const CGFloat kMarqueeSpeedUnit = 0.0005;
 
 @interface Marquee ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
