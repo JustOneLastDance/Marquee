@@ -53,6 +53,10 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
     return self;
 }
 
+- (void)dealloc {
+    [_timer invalidate];
+}
+
 #pragma mark - getter & setter
 
 - (void)setScrollSpeed:(CGFloat)scrollSpeed {
@@ -72,6 +76,7 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
     }
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil repeats:true];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     
 }
 
