@@ -11,17 +11,21 @@
 
 @interface Marquee : UIView
 /**
- *  需要显示的内容数组
+ *  resource array
  */
 @property (nonatomic, strong) NSArray *resourceArray;
 /**
- *  cell的代理传递
+ *  cell's delegate
  */
 @property (nonatomic, weak) id delegate;
 /**
- *  走马灯滚动速率 
- *  1～10 default 5 值越小越慢
+ *  the speed of the rolling
+ *  1～10 default 5 math smaller the speed slower
  */
 @property (nonatomic, assign) CGFloat scrollSpeed;
+
+- (void)startMarquee;
+
+- (void)stopMarquee;
 
 @end

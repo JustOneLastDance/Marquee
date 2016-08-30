@@ -45,6 +45,18 @@
     marquee.resourceArray = arr;
     marquee.delegate = self;
     marquee.scrollSpeed = 10;
+    
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+   
+    if (touches.count == 1) {
+        [self.marquee stopMarquee];
+    }
+    if (touches.count == 2) {
+        [self.marquee startMarquee];
+    }
 }
 
 @end

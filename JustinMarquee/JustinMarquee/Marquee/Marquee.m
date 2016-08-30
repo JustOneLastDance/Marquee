@@ -18,7 +18,7 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
 @property (nonatomic, strong) NSMutableArray *itemWidthArray;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) CGFloat currentX;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, weak) NSTimer *timer;
 
 @end
 
@@ -75,8 +75,8 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
         [self.itemWidthArray addObject:@(label.frame.size.width)];
     }
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil repeats:true];
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil repeats:true];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
 }
 
@@ -107,7 +107,18 @@ static const CGFloat kMarqueeSpeedUnit = 0.0005;
     return itemSize;
 }
 
-#pragma mark - other function
+#pragma mark - publik function
+- (void)startMarquee {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(pxy_autoScrollCollectionView) userInfo:nil repeats:true];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopMarquee {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+#pragma mark - private function
 - (void)pxy_autoScrollCollectionView {
     
     CGFloat totalcontentWidth = 0.0f;
